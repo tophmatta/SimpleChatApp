@@ -33,10 +33,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let tapGesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tableViewTapped")
         self.messageTableView.addGestureRecognizer(tapGesture)
         
-        // Add some sample data so we can see something
-        self.messagesArray.append("Test 1")
-        self.messagesArray.append("Test 2")
-        self.messagesArray.append("Test 3")
+        // Retrieve messages from Parse
+        self.retrieveMessages()
     
     }
 
@@ -70,6 +68,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if (success == true){
                 // Message has been saved! YAY
                 // To do: Retrieve the latest messages and reload the table
+                self.retrieveMessages()
                 NSLog("saved")
             }
             else{
@@ -77,11 +76,44 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 NSLog(error!.description)
             }
             
+            dispatch_async(dispatch_get_main_queue()){
+            
             // Enable the textfield and send button
             self.messageTextField.enabled = true
             self.sendButton.enabled = true
             self.messageTextField.text = ""
+            }
             
+        }
+    }
+    
+    func retrieveMessages() {
+        
+        // Create a new PFQuery
+        var query:PFQuery = PFQuery(className: "Message")
+        
+        // Call findobjectsinbackground
+        query.findObjectsInBackgroundWithBlock { (objects:[AnyObject]?, error:NSError?) -> Void in
+            
+            // Clear the messages array
+            self.messagesArray = [String]()
+            
+            // Loop through the objects array
+            for messageObject in objects! {
+                
+                // Retrieve the text column value of each PFObject
+                let messageText:String? = (messageObject as! PFObject)["Text"] as? String
+                
+                // Assign it into our messages array
+                if messageText != nil {
+                    self.messagesArray.append(messageText!)
+                }
+                
+            }
+            dispatch_async(dispatch_get_main_queue()){
+                // Reload the tableview
+                self.messageTableView.reloadData()
+            }
         }
     }
     
