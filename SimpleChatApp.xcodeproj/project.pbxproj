@@ -29,6 +29,9 @@
 		6D359F701B7ABC6300CAFFBC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D359F6F1B7ABC6300CAFFBC /* SystemConfiguration.framework */; };
 		6D359F721B7ABC6F00CAFFBC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D359F711B7ABC6F00CAFFBC /* libz.dylib */; };
 		6D359F741B7ABC7E00CAFFBC /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D359F731B7ABC7E00CAFFBC /* libsqlite3.dylib */; };
+		6D75FFA61B84110900FD6D27 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D75FFA51B84110900FD6D27 /* Accounts.framework */; };
+		6D75FFA81B84111000FD6D27 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D75FFA71B84111000FD6D27 /* Social.framework */; };
+		6D75FFAA1B841C3C00FD6D27 /* UserLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D75FFA91B841C3C00FD6D27 /* UserLogInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +71,9 @@
 		6D359F6F1B7ABC6300CAFFBC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		6D359F711B7ABC6F00CAFFBC /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		6D359F731B7ABC7E00CAFFBC /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		6D75FFA51B84110900FD6D27 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		6D75FFA71B84111000FD6D27 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		6D75FFA91B841C3C00FD6D27 /* UserLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLogInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +81,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D75FFA81B84111000FD6D27 /* Social.framework in Frameworks */,
+				6D75FFA61B84110900FD6D27 /* Accounts.framework in Frameworks */,
 				6D359F741B7ABC7E00CAFFBC /* libsqlite3.dylib in Frameworks */,
 				6D359F721B7ABC6F00CAFFBC /* libz.dylib in Frameworks */,
 				6D359F701B7ABC6300CAFFBC /* SystemConfiguration.framework in Frameworks */,
@@ -128,6 +136,7 @@
 			children = (
 				6D359F351B7ABB4C00CAFFBC /* AppDelegate.swift */,
 				6D359F371B7ABB4C00CAFFBC /* ViewController.swift */,
+				6D75FFA91B841C3C00FD6D27 /* UserLogInViewController.swift */,
 				6D359F391B7ABB4C00CAFFBC /* Main.storyboard */,
 				6D359F3C1B7ABB4C00CAFFBC /* Images.xcassets */,
 				6D359F3E1B7ABB4C00CAFFBC /* LaunchScreen.xib */,
@@ -164,6 +173,8 @@
 		6D359F751B7AC97E00CAFFBC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6D75FFA71B84111000FD6D27 /* Social.framework */,
+				6D75FFA51B84110900FD6D27 /* Accounts.framework */,
 				6D359F731B7ABC7E00CAFFBC /* libsqlite3.dylib */,
 				6D359F711B7ABC6F00CAFFBC /* libz.dylib */,
 				6D359F6F1B7ABC6300CAFFBC /* SystemConfiguration.framework */,
@@ -284,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D75FFAA1B841C3C00FD6D27 /* UserLogInViewController.swift in Sources */,
 				6D359F381B7ABB4C00CAFFBC /* ViewController.swift in Sources */,
 				6D359F361B7ABB4C00CAFFBC /* AppDelegate.swift in Sources */,
 			);
@@ -489,6 +501,7 @@
 				6D359F511B7ABB4C00CAFFBC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6D359F521B7ABB4C00CAFFBC /* Build configuration list for PBXNativeTarget "SimpleChatAppTests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +510,7 @@
 				6D359F541B7ABB4C00CAFFBC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

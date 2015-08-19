@@ -9,14 +9,16 @@
 import UIKit
 import Parse
 
+
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
+    // IBOutlets
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var messageTableView: UITableView!
-    
     @IBOutlet weak var dockViewHeight: NSLayoutConstraint!
     
+    // Empty messages array
     var messagesArray:[String] = [String]()
     
     override func viewDidLoad() {
@@ -44,6 +46,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
+    // MARK: Send, Save, and Retrieve Messages
+    
     @IBAction func sendButtonTapped(sender: AnyObject) {
         
         // Send button is tapped
@@ -67,7 +71,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             if (success == true){
                 // Message has been saved! YAY
-                // To do: Retrieve the latest messages and reload the table
+                // Retrieve the latest messages and reload the table
                 self.retrieveMessages()
                 NSLog("saved")
             }

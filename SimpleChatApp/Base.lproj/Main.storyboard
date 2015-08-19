@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dQz-DX-WWS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -81,6 +81,64 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1814" y="625"/>
+        </scene>
+        <!--User Log In View Controller-->
+        <scene sceneID="74l-1x-x9d">
+            <objects>
+                <viewController id="Jyu-OZ-yvz" customClass="UserLogInViewController" customModule="SimpleChatApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Lor-32-rVT"/>
+                        <viewControllerLayoutGuide type="bottom" id="6Lh-IX-Nyv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="18u-m8-eEu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXr-lD-pJO">
+                                <rect key="frame" x="276" y="310" width="49" height="30"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCs-rX-yQ8">
+                                <rect key="frame" x="281" y="260" width="38" height="30"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NXr-lD-pJO" firstAttribute="top" secondItem="KCs-rX-yQ8" secondAttribute="bottom" constant="20" id="Cvg-Ni-ilL"/>
+                            <constraint firstItem="NXr-lD-pJO" firstAttribute="centerX" secondItem="KCs-rX-yQ8" secondAttribute="centerX" id="OcO-W9-OWC"/>
+                            <constraint firstItem="KCs-rX-yQ8" firstAttribute="centerX" secondItem="18u-m8-eEu" secondAttribute="centerX" id="Wca-ZP-TLc"/>
+                            <constraint firstItem="KCs-rX-yQ8" firstAttribute="top" secondItem="Lor-32-rVT" secondAttribute="bottom" constant="196" id="d5A-vI-9Un"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="5pe-up-MR5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cCc-nD-4i2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="996" y="625"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="RcD-mG-IE3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dQz-DX-WWS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NfM-6R-NL7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Jyu-OZ-yvz" kind="relationship" relationship="rootViewController" id="iMn-MA-YVm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vsk-Ol-gYo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="184" y="625"/>
         </scene>
     </scenes>
 </document>
