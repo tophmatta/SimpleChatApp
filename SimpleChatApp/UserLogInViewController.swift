@@ -15,9 +15,14 @@ class UserLogInViewController: UIViewController, PFLogInViewControllerDelegate, 
     // Variables
     var logInViewController:PFLogInViewController! = PFLogInViewController()
     var signUpViewController:PFSignUpViewController! = PFSignUpViewController()
+    
+    // Login Button label
+    @IBOutlet weak var loginButtonLabel: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        PFUser.currentUser()
 
         // Do any additional setup after loading the view.
     }
@@ -47,8 +52,16 @@ class UserLogInViewController: UIViewController, PFLogInViewControllerDelegate, 
             self.signUpViewController.delegate = self
             
             self.logInViewController.signUpController = self.signUpViewController
+            
+            loginButtonLabel.layoutIfNeeded()
+            signUpLogoTitle.layoutIfNeeded()
         }
+        else{
+            loginButtonLabel.layoutIfNeeded()
+        }
+        
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -71,6 +84,13 @@ class UserLogInViewController: UIViewController, PFLogInViewControllerDelegate, 
     func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
         self.dismissViewControllerAnimated(true, completion: nil)
         
+        // Segue to table view
+        self.performSegueWithIdentifier("login", sender: self)
+        
+        loginButtonLabel.setTitle("Login", forState: .Normal)
+        loginButtonLabel.layoutIfNeeded()
+        
+
     }
     
     func logInViewController(logInController: PFLogInViewController, didFailToLogInWithError error: NSError?) {
@@ -92,13 +112,32 @@ class UserLogInViewController: UIViewController, PFLogInViewControllerDelegate, 
         println("User dismissed sign up.")
     }
     
+
+    
     // MARK: Actions
     
     @IBAction func simpleAction(sender: AnyObject){
         
-        self.presentViewController(self.logInViewController, animated: true, completion: nil)
+        if(PFUser.currentUser() == nil){
+            self.presentViewController(self.logInViewController, animated: true, completion: nil)
+        }
+        else{
+            loginButtonLabel.setTitle("To chat wall", forState: .Normal)
+            loginButtonLabel.layoutIfNeeded()
+            self.performSegueWithIdentifier("login", sender: self)
+            
+        }
         
     }
+    
+    @IBAction func logoutAction(sender: AnyObject) {
+        PFUser.logOut()
+        loginButtonLabel.setTitle("Login", forState: .Normal)
+        loginButtonLabel.layoutIfNeeded()
+    }
+    
+    
+
     
 
     /*

@@ -18,6 +18,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var messageTableView: UITableView!
     @IBOutlet weak var dockViewHeight: NSLayoutConstraint!
     
+    
     // Empty messages array
     var messagesArray:[String] = [String]()
     
@@ -173,6 +174,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return messagesArray.count
         
     }
+    
+    
+    
+    
     
     
 

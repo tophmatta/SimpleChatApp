@@ -100,12 +100,18 @@
                                 <state key="normal" title="Logout">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="logoutAction:" destination="Jyu-OZ-yvz" eventType="touchUpInside" id="T8l-6j-6Kq"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCs-rX-yQ8">
                                 <rect key="frame" x="281" y="260" width="38" height="30"/>
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="simpleAction:" destination="Jyu-OZ-yvz" eventType="touchUpInside" id="Hvu-12-hMo"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -117,6 +123,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5pe-up-MR5"/>
+                    <connections>
+                        <outlet property="loginButtonLabel" destination="KCs-rX-yQ8" id="0kn-Fg-xdM"/>
+                        <segue destination="vXZ-lx-hvc" kind="show" identifier="login" id="ddx-Jx-Fqh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cCc-nD-4i2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
