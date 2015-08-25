@@ -22,7 +22,7 @@ class UserLogInViewController: UIViewController, PFLogInViewControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        PFUser.currentUser()
+        PFUser.logOut()
 
         // Do any additional setup after loading the view.
     }
@@ -56,9 +56,6 @@ class UserLogInViewController: UIViewController, PFLogInViewControllerDelegate, 
             loginButtonLabel.layoutIfNeeded()
             signUpLogoTitle.layoutIfNeeded()
         }
-        else{
-            loginButtonLabel.layoutIfNeeded()
-        }
         
     }
     
@@ -87,10 +84,8 @@ class UserLogInViewController: UIViewController, PFLogInViewControllerDelegate, 
         // Segue to table view
         self.performSegueWithIdentifier("login", sender: self)
         
-        loginButtonLabel.setTitle("Login", forState: .Normal)
-        loginButtonLabel.layoutIfNeeded()
-        
-
+        // Set button to show "To Chat Wall"
+        loginButtonLabel.setTitle("Chat", forState: .Normal)
     }
     
     func logInViewController(logInController: PFLogInViewController, didFailToLogInWithError error: NSError?) {
@@ -112,7 +107,6 @@ class UserLogInViewController: UIViewController, PFLogInViewControllerDelegate, 
         println("User dismissed sign up.")
     }
     
-
     
     // MARK: Actions
     
@@ -122,18 +116,14 @@ class UserLogInViewController: UIViewController, PFLogInViewControllerDelegate, 
             self.presentViewController(self.logInViewController, animated: true, completion: nil)
         }
         else{
-            loginButtonLabel.setTitle("To chat wall", forState: .Normal)
-            loginButtonLabel.layoutIfNeeded()
-            self.performSegueWithIdentifier("login", sender: self)
-            
+            performSegueWithIdentifier("login", sender: self)
         }
-        
+
     }
     
     @IBAction func logoutAction(sender: AnyObject) {
         PFUser.logOut()
         loginButtonLabel.setTitle("Login", forState: .Normal)
-        loginButtonLabel.layoutIfNeeded()
     }
     
     

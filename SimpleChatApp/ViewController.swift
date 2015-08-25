@@ -19,6 +19,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var dockViewHeight: NSLayoutConstraint!
     
     
+    
     // Empty messages array
     var messagesArray:[String] = [String]()
     
@@ -175,12 +176,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
+    // MARK: Clear chat log
     
-    
-    
-    
-    
-
-
+    @IBAction func clearChatButtonTapped(sender: AnyObject) {
+        var deleteQuery = PFQuery(className: "Message")
+        
+        deleteQuery.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
+            // Clear the messages array
+            self.messagesArray = [String]()
+            
+            // Loop through the objects array
+            for messageObject in objects! {
+                
+                messageObject.deleteInBackground()
+                
+            }
+            dispatch_async(dispatch_get_main_queue()){
+                // Reload the tableview
+                self.messageTableView.reloadData()
+            }
+        }
+        
+    }
 }
-

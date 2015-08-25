@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--The Chat-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="SimpleChatApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -72,6 +72,13 @@
                             <constraint firstAttribute="trailingMargin" secondItem="oAb-ap-SMu" secondAttribute="trailing" id="kkq-Hj-EPP"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="The Chat" id="wHQ-O8-4Lw">
+                        <barButtonItem key="rightBarButtonItem" title="Clear Chat" id="2uR-aD-wRb">
+                            <connections>
+                                <action selector="clearChatButtonTapped:" destination="vXZ-lx-hvc" id="U6u-3j-cy3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="dockViewHeight" destination="lZH-jk-05Y" id="6tP-ql-B9c"/>
                         <outlet property="messageTableView" destination="zxN-E8-Y0c" id="3ph-Hk-UAp"/>
@@ -83,7 +90,7 @@
             </objects>
             <point key="canvasLocation" x="1814" y="625"/>
         </scene>
-        <!--User Log In View Controller-->
+        <!--Probably that one =>-->
         <scene sceneID="74l-1x-x9d">
             <objects>
                 <viewController id="Jyu-OZ-yvz" customClass="UserLogInViewController" customModule="SimpleChatApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -94,9 +101,13 @@
                     <view key="view" contentMode="scaleToFill" id="18u-m8-eEu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXr-lD-pJO">
-                                <rect key="frame" x="276" y="310" width="49" height="30"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Probably that one =&gt;" id="5pe-up-MR5">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="poN-iF-SEy">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NXr-lD-pJO">
+                                <rect key="frame" x="276" y="7" width="49" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Logout">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -104,8 +115,11 @@
                                     <action selector="logoutAction:" destination="Jyu-OZ-yvz" eventType="touchUpInside" id="T8l-6j-6Kq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCs-rX-yQ8">
-                                <rect key="frame" x="281" y="260" width="38" height="30"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="iN3-JL-bVO">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KCs-rX-yQ8">
+                                <rect key="frame" x="545" y="7" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -113,16 +127,8 @@
                                     <action selector="simpleAction:" destination="Jyu-OZ-yvz" eventType="touchUpInside" id="Hvu-12-hMo"/>
                                 </connections>
                             </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="NXr-lD-pJO" firstAttribute="top" secondItem="KCs-rX-yQ8" secondAttribute="bottom" constant="20" id="Cvg-Ni-ilL"/>
-                            <constraint firstItem="NXr-lD-pJO" firstAttribute="centerX" secondItem="KCs-rX-yQ8" secondAttribute="centerX" id="OcO-W9-OWC"/>
-                            <constraint firstItem="KCs-rX-yQ8" firstAttribute="centerX" secondItem="18u-m8-eEu" secondAttribute="centerX" id="Wca-ZP-TLc"/>
-                            <constraint firstItem="KCs-rX-yQ8" firstAttribute="top" secondItem="Lor-32-rVT" secondAttribute="bottom" constant="196" id="d5A-vI-9Un"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="5pe-up-MR5"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="loginButtonLabel" destination="KCs-rX-yQ8" id="0kn-Fg-xdM"/>
                         <segue destination="vXZ-lx-hvc" kind="show" identifier="login" id="ddx-Jx-Fqh"/>
